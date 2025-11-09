@@ -1,6 +1,6 @@
 package com.teenpatti.transaction.service;
 
-import com.teenpatti.transaction.model.Transaction;
+import com.teenpatti.common.models.Transaction;
 import com.teenpatti.transaction.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

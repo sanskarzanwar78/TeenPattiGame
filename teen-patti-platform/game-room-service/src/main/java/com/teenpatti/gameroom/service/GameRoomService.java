@@ -18,7 +18,7 @@ public class GameRoomService {
         return gameRoomRepository.save(room);
     }
     
-    public GameRoom getRoom(Long id) {
+    public GameRoom getRoom(String id) {
         return gameRoomRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Room not found"));
     }
@@ -28,7 +28,7 @@ public class GameRoomService {
             Integer.MAX_VALUE, "WAITING");
     }
     
-    public GameRoom joinRoom(Long roomId) {
+    public GameRoom joinRoom(String roomId) {
         GameRoom room = getRoom(roomId);
         if (room.getCurrentPlayers() >= room.getMaxPlayers()) {
             throw new RuntimeException("Room is full");
@@ -37,7 +37,7 @@ public class GameRoomService {
         return gameRoomRepository.save(room);
     }
     
-    public GameRoom leaveRoom(Long roomId) {
+    public GameRoom leaveRoom(String roomId) {
         GameRoom room = getRoom(roomId);
         if (room.getCurrentPlayers() > 0) {
             room.setCurrentPlayers(room.getCurrentPlayers() - 1);
@@ -45,7 +45,7 @@ public class GameRoomService {
         return gameRoomRepository.save(room);
     }
     
-    public void closeRoom(Long roomId) {
+    public void closeRoom(String roomId) {
         GameRoom room = getRoom(roomId);
         room.setStatus("CLOSED");
         gameRoomRepository.save(room);

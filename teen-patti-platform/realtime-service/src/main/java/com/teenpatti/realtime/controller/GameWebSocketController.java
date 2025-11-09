@@ -1,6 +1,6 @@
 package com.teenpatti.realtime.controller;
 
-import com.teenpatti.gameengine.model.Card;
+import com.teenpatti.common.models.Card;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;

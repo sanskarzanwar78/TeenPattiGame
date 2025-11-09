@@ -21,7 +21,7 @@ public class GameRoomController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<GameRoom> getRoom(@PathVariable Long id) {
+    public ResponseEntity<GameRoom> getRoom(@PathVariable String id) {
         return ResponseEntity.ok(gameRoomService.getRoom(id));
     }
     
@@ -31,17 +31,17 @@ public class GameRoomController {
     }
     
     @PostMapping("/{id}/join")
-    public ResponseEntity<GameRoom> joinRoom(@PathVariable Long id) {
+    public ResponseEntity<GameRoom> joinRoom(@PathVariable String id) {
         return ResponseEntity.ok(gameRoomService.joinRoom(id));
     }
     
     @PostMapping("/{id}/leave")
-    public ResponseEntity<GameRoom> leaveRoom(@PathVariable Long id) {
+    public ResponseEntity<GameRoom> leaveRoom(@PathVariable String id) {
         return ResponseEntity.ok(gameRoomService.leaveRoom(id));
     }
     
     @PostMapping("/{id}/close")
-    public ResponseEntity<Void> closeRoom(@PathVariable Long id) {
+    public ResponseEntity<Void> closeRoom(@PathVariable String id) {
         gameRoomService.closeRoom(id);
         return ResponseEntity.ok().build();
     }

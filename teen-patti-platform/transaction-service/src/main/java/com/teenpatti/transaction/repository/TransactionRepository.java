@@ -1,7 +1,9 @@
-package com.teenpatti.transaction.service;
+package com.teenpatti.transaction.repository;
 
-import com.teenpatti.transaction.model.Transaction;
+import com.teenpatti.common.models.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
     List<Transaction> findByUserId(Long userId);
